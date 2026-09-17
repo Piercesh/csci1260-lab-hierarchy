@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace The_Game
 {
-    public abstract class Holding
+    public abstract class Holding : IReportable
     {
         private string sku;
         private string name;
@@ -31,6 +31,59 @@ namespace The_Game
         }
 
         public abstract string Category();
+        public abstract decimal HandFee();
+        public decimal ExtendedValue()
+        {
+            return unitPrice * quantityOnHand;
+        }
 
-    }
+        public bool Receive(int count)
+        {
+            if (count <= 0)
+            {
+                return false;
+            }
+            quantityOnHand += count;
+            history.Add(new VaultEntry(nextSeq++, "Receive", count));
+
+            nextSeq++;
+            return true;
+        }
+
+        public bool Release(int count)
+        {
+            if (count <= 0 || count > quantityOnHand)
+            {
+                return false;
+            }
+            quantityOnHand -= count;
+            history.Add(new VaultEntry(nextSeq++, "Release", count));
+            nextSeq++;
+            return true;
+        }
+
+        public string MovementLines()
+        {
+            string result = "";
+            foreach (VaultEntry entry in history)
+            {
+                result += entry.ToString() + Environment.NewLine;
+            }
+            return result;
+        }
+
+        public virtual string Describe()
+        {
+            return $"{sku} - {name}";
+        }
+
+        public string ReportLine()
+        {
+            return $"{sku} | {name} | {Category()} | " + $"Qty: {quantityOnHand} | " + $"Unit Price: {unitPrice:C} | " + $"Extended Value: {ExtendedValue():C} | " + $"Handling Fee: {HandFee():C}";
+        }
+
+        public override string ToString()
+        {
+            return Describe();
+        }
 }
