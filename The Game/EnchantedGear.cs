@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace The_Game
+{
+    public class EnchantedGear
+    {      
+        private int shelfLifeDays;
+
+        public 
+    }
+}
