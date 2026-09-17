@@ -6,5 +6,10 @@
         {
             Console.WriteLine("Hello, World!");
         }
+
+        static void Show(IReportable r)
+        {
+                       Console.WriteLine(r.ReportLine());
+        }
     }
 }
