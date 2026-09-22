@@ -10,7 +10,7 @@ namespace The_Game
     {      
         private int shelfLifeDays;
 
-        public const decimal SurchargeFee = 0.40m;
+        public const decimal SurchargeFee = 5.00m;
 
         public int ShelfLifeDays
         {

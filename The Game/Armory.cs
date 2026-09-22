@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 
 namespace The_Game
 {
+    /// <summary>
+    /// Here is IReportable will be connected to the Armory.
+    /// </summary>
     public class Armory : IReportable
     {
         private string name;
         private List<Holding> items;
-
+        /// <summary>
+        /// Here you have the name for the items & should keep the count of the items.
+        /// </summary>
         public string Name { get { return name; } }
         public int Count { get { return items.Count; } }
         public Armory(string name)
@@ -19,7 +24,11 @@ namespace The_Game
             this.name = name;
             this.items = new List<Holding>();
         }
-
+        /// <summary>
+        /// This will add new items if it is true,
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool Add(Holding item)
         {
             if (item == null)
@@ -38,6 +47,10 @@ namespace The_Game
             }
             return null;
         }
+        /// <summary>
+        /// This will get the total value of the items that have been put in.
+        /// </summary>
+        /// <returns></returns>
         public decimal TotalValue()
         {
             decimal total = 0;
@@ -91,7 +104,9 @@ namespace The_Game
             }
             return count;
         }
-
+        /// <summary>
+        /// This will sort the items by its value
+        /// </summary>
         public void SortByValue()
         {
             items.Sort(Beats);
@@ -105,12 +120,17 @@ namespace The_Game
                 return 1;
             return 0;
         }
-
+        /// <summary>
+        /// In this string, when you run the code this should show the name, count and total value of the item.
+        /// </summary>
+        /// <returns></returns>
         public string ReportLine()
         {
             return $"{Name} | " + $"Items: {Count} | " + $"Total Value: {TotalValue():C}";
         }
-
+        /// <summary>
+        /// Here is where it will show the name, the total items, the total value, sale value, and the on sale.
+        /// </summary>
         public void PrintReport()
         {
             Console.WriteLine($"=== {Name} ===");

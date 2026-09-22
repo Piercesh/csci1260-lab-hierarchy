@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace The_Game
 {
+    /// <summary>
+    /// The Holding class needs to be abstract and also has to have IReportable Interface for it 
+    /// to have access to name and sku and other data in the code.
+    /// </summary>
     public abstract class Holding : IReportable
     {
         private string sku;
@@ -29,7 +33,10 @@ namespace The_Game
             this.history = new List<VaultEntry>();
             this.nextSeq = 1;
         }
-
+        /// <summary>
+        /// Here the two classes Category and HandFee will need to be abstract classes
+        /// </summary>
+        /// <returns></returns>
         public abstract string Category();
         public abstract decimal HandFee();
         public decimal ExtendedValue()
@@ -76,12 +83,19 @@ namespace The_Game
         {
             return $"{sku} - {name}";
         }
-
+        /// <summary>
+        /// Here is where the Reportline will be, it will return the name, sku, Category, QTY, UnitPrice, ExtendedValue and HandlingFee.
+        /// </summary>
+        /// <returns></returns>
         public string ReportLine()
         {
             return $"{sku} | {name} | {Category()} | " + $"Qty: {quantityOnHand} | " + $"Unit Price: {unitPrice:C} | " + $"Extended Value: {ExtendedValue():C} | " + $"Handling Fee: {HandFee():C}";
         }
-
+        /// <summary>
+        /// For here you will need to have the override for the ToString class to make it work.
+        /// in the class you will need to return the Describe()
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Describe();

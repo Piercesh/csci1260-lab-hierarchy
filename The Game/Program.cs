@@ -18,6 +18,7 @@
             armory.Add(staff);
             armory.Add(potion);
 
+            ///This is what will show the names of the weapons and potion
             Console.WriteLine(sword.Describe());
             Console.WriteLine(staff.Describe());
             Console.WriteLine(potion.Describe());
