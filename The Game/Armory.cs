@@ -60,7 +60,10 @@ namespace The_Game
             }
             return total;
         }
-
+        /// <summary>
+        /// This will get the sale value and the quantity of the item.
+        /// </summary>
+        /// <returns></returns>
         public decimal SaleValue()
         {
             decimal total = 0m;
