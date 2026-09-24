@@ -12,6 +12,10 @@ namespace The_Game
     /// </summary>
     public abstract class Holding : IReportable
     {
+        /// <summary>
+        /// Over here are the private code and the public code
+        /// The public is to get and return the things that were needed for this code.
+        /// </summary>
         private string sku;
         private string name;
         private decimal unitPrice;
@@ -21,9 +25,9 @@ namespace The_Game
 
         public string Sku { get { return sku; } }
         public string Name { get { return name; } }
-        public decimal UnitPrice { get { return unitPrice; } }
+        public decimal UnitPrice { get { return unitPrice; } } 
         public int QuantityOnHand { get { return quantityOnHand; } }
-        public int MoveCount { get { return history.Count; } }
+        public int MoveCount { get { return history.Count; } } 
         protected Holding(string sku, string name, decimal unitPrice, int quantityOnHand)
         {
             this.sku = sku;
@@ -43,7 +47,11 @@ namespace The_Game
         {
             return unitPrice * quantityOnHand;
         }
-
+        /// <summary>
+        /// In this part of the code it will recieve the items that have been put in the code.
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public bool Receive(int count)
         {
             if (count <= 0)
@@ -56,7 +64,11 @@ namespace The_Game
             nextSeq++;
             return true;
         }
-
+        /// <summary>
+        /// This part will release the info that was put in the code
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public bool Release(int count)
         {
             if (count <= 0 || count > quantityOnHand)
@@ -68,7 +80,10 @@ namespace The_Game
             nextSeq++;
             return true;
         }
-
+        /// <summary>
+        /// Here is where the string will show the history of the items that will show when running the code.
+        /// </summary>
+        /// <returns></returns>
         public string MovementLines()
         {
             string result = "";
@@ -78,7 +93,10 @@ namespace The_Game
             }
             return result;
         }
-
+        /// <summary>
+        /// This string will show and return the sku and the name.
+        /// </summary>
+        /// <returns></returns>
         public virtual string Describe()
         {
             return $"{sku} - {name}";

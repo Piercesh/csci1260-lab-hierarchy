@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace The_Game
 {
+    /// <summary>
+    /// In the enchantedgear, it is connected to the equipment and IDiscountable.
+    /// in the class, shelflifedays is set to private and 
+    /// </summary>
     public class EnchantedGear : Equipment, IDiscountable
     {      
         private int shelfLifeDays;

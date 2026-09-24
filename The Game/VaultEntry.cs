@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace The_Game
 {
+    /// <summary>
+    /// The VaultyEntry 
+    /// </summary>
     public class VaultEntry
     {
         private int seq;
         private string kind;
         private int count;
-        public int Seq { get { return seq; } }
+        public int Seq { get; } = 0;
 
-        public string Kind { get { return kind; } }
+        public string Kind { get; }
 
-        public int Count { get { return count; } }
+        public int Count { get; } = 0;
         public VaultEntry(int seq, string kind, int count)
         {
             this.seq = seq;
@@ -24,7 +27,7 @@ namespace The_Game
         }
         public string Describe()
         {
-                       return $"{seq}: {kind} {count}";
+          return $"{seq}: {kind} {count}";
         }
     }
 }

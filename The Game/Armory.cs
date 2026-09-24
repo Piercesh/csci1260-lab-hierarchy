@@ -37,7 +37,7 @@ namespace The_Game
             items.Add(item);
             return true;
         }
-
+        //This will be apart of holding and will find the items for sku.
         public Holding Find(string sku)
         {
             foreach (Holding item in items)
@@ -69,6 +69,7 @@ namespace The_Game
             decimal total = 0m;
             foreach (Holding item in items)
             {
+                ///This if statement is apart of the IDiscountable and is important for it to get the info
                 if (item is IDiscountable discountableItem && discountableItem.IsOnSale)
                 {
                     total += discountableItem.SalePrice() * item.QuantityOnHand;
@@ -80,7 +81,10 @@ namespace The_Game
             }
             return total;
         }
-
+        /// <summary>
+        /// This is to keep count of all the items that will show up
+        /// </summary>
+        /// <returns></returns>
         public int SignedCount() 
         {
             int count = 0;
@@ -95,6 +99,11 @@ namespace The_Game
 
             
         }
+        /// <summary>
+        /// this will show what is on sale and will keep count of the items that show.
+        /// It is also going to be connected to the IDiscountable.
+        /// </summary>
+        /// <returns></returns>
         public int OnSaleCount()
         {
                        int count = 0;
@@ -114,7 +123,12 @@ namespace The_Game
         {
             items.Sort(Beats);
         }
-
+        /// <summary>
+        /// This is going to be private and it will be conntected to Holding.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         private static int Beats(Holding a, Holding b)
         {
             if (a.ExtendedValue() > b.ExtendedValue())
