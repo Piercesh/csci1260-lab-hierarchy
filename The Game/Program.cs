@@ -29,7 +29,11 @@
 
             potion.Release(1);
             potion.Receive(5);
-
+            ///Here you have the history of the items
+            Console.WriteLine("===========================");
+            Console.WriteLine("HISTORY");
+            Console.WriteLine("===========================");
+            Console.WriteLine();
             Console.WriteLine("Sword Movement History:");
             Console.WriteLine(sword.MovementLines);
 
@@ -41,6 +45,11 @@
             Console.WriteLine($"Potion Value: {potion.ExtendedValue():C}");
             Console.WriteLine($"Armory Total: {armory.TotalValue():C}");
 
+            Console.WriteLine();
+
+            Console.WriteLine("===========================");
+            Console.WriteLine("SALES");
+            Console.WriteLine("===========================");
             Console.WriteLine();
 
             IDiscountable enchanted = staff;
