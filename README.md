@@ -52,15 +52,39 @@ Next set up a TotalValue, SaleValue, SignedCount, OnSaleCount and SortByValue.
 set private static for beats (Holding a, Holding b).
 Then Set up a ReportLine to show the name, item count, and TotalValue.
 And the last one will be the ReportLine.
+Armory might be the longest one I had to work as to make sure everything was set up correctly and make sure it matched up as to what
+I was going for.
 
+#Starting on lab 3 this one did take me a few days, but it wasn't too long as lab 2. I had go and figure out some errors that were made along the way, but hopefully they have been fixed.
 #LootDrop
-
+LootDrop will have 3 Interfaces that will be in the class. There will be iComparer, IEquatable, & IComparable
+LootDrop will implement IEquatable & IComparable.
+Three things are needed for this class, which are Monster, DropNo, and Gold.
+There is the public LootDrop that will set up the Monster, DropnNo, and Gold.
+There will need to be two equals that need to be set up.
+The first one is a bool for equals to set an if statement and have it return the monster, DropNo, & Gold.
+The Next equals will have an override bool and have object.
+Next is to set up an Override for GetHashCode and to have it return HashCode.Combine for monster, DropNo, Gold.
+For the other thing you need is the CompareTo and have LootDrop other. You will need to set up if statements for the results
+to compare Monster, DropNo, & Gold.
+The last thing is the ToSpring() which you need to override and it will be the way to show the Monsters, the DropNo, & Gold.
+This one did take the longest
 #HighestValueFirst
-
+HighestValueFirst will need to implement IComparer.
+You will then need to set up a compare for lootdrop a and lootdrop b.
+You will need to if statement and have it in Referenceequals for a and b.
+this statement for gold.
 #GroupByKey
+GroupByKey is almost the same as HighestValueFirst but with a few changes
+In the compare instead of it being gold, it will be monster.
 
 #LootLog
-
+IDisposable will be put into LootLog.
+Here LootLog will implement IDisposable.
+For Lootlog you will need Writer, path, count, and isclosed.
+There will be a public Lootlog that will have path, count = 0, isclosed that is set to false, writer will have streamwriter(path).
+You will then set up a void write for Lootdrop r.
+The last thing will be void Dispose and set up the if statement on isclosed that should be true.
 #IReportable
 IReportable only has one thing and that would be the string ReportLine()
 
