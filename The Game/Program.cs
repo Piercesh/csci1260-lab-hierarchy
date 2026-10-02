@@ -1,9 +1,10 @@
 ﻿namespace The_Game
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            ///Here is the start of the Vault Report.
             Console.WriteLine("===========================");
             Console.WriteLine("EMBERLY ARMORY : VAULT REPORT");
             Console.WriteLine("===========================");
@@ -79,21 +80,43 @@
             armory.SortByValue();
             armory.PrintReport();
             Console.WriteLine();
-
+            ///This will report on what is in the armory and the sword.
             IReportable reportableSword = sword;
             IReportable reportableArmory = armory;
             Console.WriteLine(reportableSword.ReportLine());
             Console.WriteLine(reportableArmory.ReportLine());
             Console.WriteLine();
 
-            Console.WriteLine("-------------------------");
+            Console.WriteLine("=========================");
             Console.WriteLine(sword.ToString());
             Console.WriteLine(staff.ToString());
             Console.WriteLine(potion.ToString());
+            Console.WriteLine("=========================");
+            Console.WriteLine();
+            // Here is the beginning of code for the LootDrop and Lootlog classes
+            Console.WriteLine("EMBERLY ARMORY");
+            Console.WriteLine();
+            Console.WriteLine("Seven records created, in this order:");
+            //This is where it will list the monster, drop number, and gold amount for each loot drop
+            List<LootDrop> loot = new List<LootDrop>
+            {
+                new LootDrop("Wraith", 3, 21.50),
+                new LootDrop("Golem", 1, 19.00),
+                new LootDrop("Wraith", 1, 15.00),
+                new LootDrop("Golem", 1, 19.00),
+                new LootDrop("Wraith", 3, 18.75),
+                new LootDrop("Imp", 2, 30.00),
+                new LootDrop("Golem", 4, 12.50)
 
+            };
+            //This is how it will show the lootdrop on the console.
+            foreach (LootDrop drop in loot)
+            {
+                Console.WriteLine(drop);
+            }
         }
 
-        static void Show(IReportable r)
+        public void Show(IReportable r)
         {
                        Console.WriteLine(r.ReportLine());
         }
